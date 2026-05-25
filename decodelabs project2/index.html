@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Web Layout</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+    color:#333;
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#222;
+    color:white;
+    padding:15px 40px;
+    position:sticky;
+    top:0;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+}
+
+.nav-links{
+    list-style:none;
+    display:flex;
+    gap:25px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+    color:#4da6ff;
+}
+
+.menu-toggle{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+}
+
+.hero{
+    text-align:center;
+    padding:80px 20px;
+}
+
+.hero h1{
+    font-size:50px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:18px;
+    margin-bottom:25px;
+}
+
+.hero button{
+    background:#007bff;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:5px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.hero button:hover{
+    background:#0056b3;
+}
+
+.cards{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    padding:40px;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:white;
+    width:300px;
+    padding:25px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card h2{
+    margin-bottom:10px;
+}
+
+.about{
+    padding:60px 20px;
+    text-align:center;
+    background:white;
+}
+
+.contact{
+    padding:60px 20px;
+    text-align:center;
+    background:#222;
+    color:white;
+}
+
+footer{
+    text-align:center;
+    padding:15px;
+    background:#111;
+    color:white;
+}
+
+@media(max-width:768px){
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .nav-links{
+        display:none;
+        flex-direction:column;
+        position:absolute;
+        top:60px;
+        right:0;
+        background:#222;
+        width:200px;
+        padding:20px;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .hero h1{
+        font-size:32px;
+    }
+
+    .cards{
+        flex-direction:column;
+        align-items:center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="logo">MyWebsite</div>
+
+    <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#features">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="menu-toggle">☰</div>
+</nav>
+
+<section class="hero">
+    <h1>Responsive Web Layout</h1>
+    <p>Professional webpage that adapts to mobile, tablet, and desktop screens.</p>
+
+    <button onclick="scrollToFeatures()">Learn More</button>
+</section>
+
+<section class="cards" id="features">
+
+    <div class="card">
+        <h2>Responsive Design</h2>
+        <p>Works perfectly on all devices.</p>
+    </div>
+
+    <div class="card">
+        <h2>Modern Layout</h2>
+        <p>Clean spacing and alignment.</p>
+    </div>
+
+    <div class="card">
+        <h2>User Friendly</h2>
+        <p>Simple and attractive interface.</p>
+    </div>
+
+</section>
+
+<section class="about" id="about">
+    <h2>About This Project</h2>
+    <br>
+    <p>
+        This project demonstrates a responsive website built using
+        HTML, CSS, and JavaScript. It automatically adjusts to
+        different screen sizes and provides a user-friendly experience.
+    </p>
+</section>
+
+<section class="contact" id="contact">
+    <h2>Contact</h2>
+    <br>
+    <p>Email: gaddamprincy77@gmail.com</p>
+    <p>Phone: +91 9849436648</p>
+</section>
+
+<footer>
+    <p>© 2026 Responsive Web Layout Project</p>
+</footer>
+
+<script>
+function scrollToFeatures() {
+    document.getElementById("features").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+const menuToggle = document.querySelector(".menu-toggle");
+const navLinks = document.querySelector(".nav-links");
+
+menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+});
+</script>
+
+</body>
+</html>
